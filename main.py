@@ -12,13 +12,13 @@ def draw_plot():
 
   x = pd.Series([int(i) for i in range(1880, 2050)])
   slope, intercept, r_value, p_value, stderr = linregress(x_1, y_1)
-  plt.plot(x, intercept + x * slope, color="red")
+  plt.plot(x, intercept + x * slope, color="blue")
 
 
-  dfSinceY2K = df[df["Year"] >= 2000]
-  slope, intercept, r_value, p_value, stderr = linregress(dfSinceY2K["Year"], dfSinceY2K["CSIRO Adjusted Sea Level"])
+  year_2000_df = df[df["Year"] >= 2000]
+  slope, intercept, r_value, p_value, stderr = linregress(year_2000_df["Year"], year_2000_df["CSIRO Adjusted Sea Level"])
   x = pd.Series([int(i) for i in range(2000, 2050)])
-  plt.plot(x, intercept + x * slope, color="green")
+  plt.plot(x, intercept + x * slope, color="red")
 
 
   plt.xlabel("Year")
